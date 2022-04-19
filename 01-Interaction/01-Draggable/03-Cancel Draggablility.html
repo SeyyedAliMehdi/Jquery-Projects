@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../../node_modules/jquery-ui-css/jquery-ui.css">
+  <script src="../../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../../node_modules/jquery-ui-css/jquery-ui.js"></script>
+  <title>Restrict Draggability</title>
+
+  <style>
+    body{
+      width: 100%;
+      height: 100vh;
+    }
+
+    #main{
+      width: 500px;
+      height: 500px;
+      margin: 0 auto;
+      border: 2px solid black;
+      display: flex;
+      justify-content: center;
+
+    }
+
+    .sub{
+      width: 100px;
+      height: 100px;
+      padding: 5px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+<div id="main">
+  <div id="sub1" style="background-color: hotpink" class="sub"></div>
+  <div id="sub2" style="background-color: yellowgreen" class="sub"></div>
+  <div id="sub3" style="background-color: dodgerblue" class="sub"></div>
+  <div id="sub4" style="background-color: orange" class="sub"></div>
+  <p>This is a text</p>
+  <p>This is a text</p>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $("#main").draggable(); // Make element with id #main draggable notice that the element in #main also move with it.
+    $(".sub, p").draggable({cancel: "#sub1, #sub3"});
+    $("#main").draggable({disabled:true})
+    $("p:first , #sub4").draggable({disabled:true}).html("disabled");
+  //  The difference between cancel and disabled
+  //  Cancel: you chose which item from selected item not to be draggable
+  //  Disabled: you will select the item you want to disabled from draggablility at first
+
+  });
+</script>
+</body>
+</html>

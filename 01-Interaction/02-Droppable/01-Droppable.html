@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../../node_modules/jquery-ui-css/jquery-ui.css">
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../node_modules/jquery-ui-css/jquery-ui.js"></script>
+    <title>Droppable</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #area{
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            border: 2px solid black;
+            /*display: flex;*/
+            /*justify-content: center;*/
+
+        }
+
+        .sub{
+            width: 100px;
+            height: 100px;
+            /*padding: 5px;*/
+            /*margin: 5px;*/
+            border: 1px solid gray;
+            box-sizing: border-box;
+        }
+        p{
+            border: black 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="item" style="background-color: hotpink" class="sub"></div>
+    <div id="area"></div>
+
+<script>
+    $(document).ready(function () {
+        $("#item").draggable();
+        $("#area").droppable({drop:function (){
+            alert("The item is dropped!!")
+            }})
+    })
+
+</script>
+</body>
+</html>
